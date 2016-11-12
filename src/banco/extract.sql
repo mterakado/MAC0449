@@ -18,4 +18,4 @@
 
 \copy (SELECT distinct(j.journal_id), setting_value AS journal_institution FROM journals j JOIN journal_settings js ON js.journal_id = j.journal_id WHERE setting_name = 'publisherInstitution' ORDER BY j.journal_id) TO './journalsInstituion.csv' DELIMITER ',' CSV HEADER;
 
-
+ 
