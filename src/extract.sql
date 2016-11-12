@@ -1,6 +1,6 @@
 \copy (SELECT distinct(art.article_id), journal_id, date_submitted, setting_value AS article_title FROM articles art JOIN article_settings arts ON arts.article_id = art.article_id WHERE setting_name = 'cleanTitle') TO './articlesTitle.csv' DELIMITER ',' CSV HEADER;
 
-\copy (SELECT distinct(art.article_id), journal_id, date_submitted, setting_value AS article_keywords FROM articles art JOIN article_settings arts ON arts.article_id = art.article_id WHERE setting_name = 'subject' AND locale = 'pt_BR') TO './articlesKeywords.csv' DELIMITER ',' CSV HEADER;
+\copy (SELECT distinct(art.article_id), journal_id, date_submitted, setting_value AS article_keywords FROM articles art JOIN article_settings arts ON arts.article_id = art.article_id WHERE setting_name = 'subject' AND arts.locale = 'pt_BR') TO './articlesKeywords.csv' DELIMITER ',' CSV HEADER;
 
 \copy (SELECT distinct(art.article_id), setting_value AS article_abstract FROM articles art JOIN article_settings arts ON arts.article_id = art.article_id WHERE setting_name = 'abstract') TO './articlesAbstract.csv' DELIMITER ',' CSV HEADER;
 
